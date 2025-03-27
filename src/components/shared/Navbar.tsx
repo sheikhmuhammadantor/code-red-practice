@@ -10,14 +10,20 @@ export default function Navbar() {
     <nav className="py-2 px-4 border-b flex justify-between items-center">
       <div className="flex items-center justify-center gap-2">
         <Link href="/">
-          <Image src="/logo.png" height={80} width={80} alt="Code Red Logo" className="rounded-lg" />
+          <Image
+            src="/logo.png"
+            height={80}
+            width={80}
+            alt="Code Red Logo"
+            className="rounded-lg"
+          />
         </Link>
         <Menu />
       </div>
       <div className="flex items-center justify-center gap-2">
-        <LoginButton/>
-        <RegisterButton/>
-        <ModeToggle/>
+        <LoginButton />
+        <RegisterButton />
+        <ModeToggle />
       </div>
     </nav>
   );

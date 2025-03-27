@@ -11,31 +11,48 @@ import {
 import Link from "next/link";
 
 function Menu() {
+  const BlogLink: React.FC<{ href: string; query: string }> = ({
+    href,
+    query,
+  }) => {
+    return <Link href={`/${href}?${query.toLowerCase()}`}>{query}</Link>;
+  };
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <NavigationMenuLink>Latest</NavigationMenuLink>
-            <NavigationMenuLink>Popular</NavigationMenuLink>
-            <NavigationMenuLink>Highline</NavigationMenuLink>
+            <NavigationMenuLink>
+              <BlogLink href="blogs" query="Latest" />
+            </NavigationMenuLink>
+            <NavigationMenuLink>
+              <BlogLink href="blogs" query="Popular" />
+            </NavigationMenuLink>
+            <NavigationMenuLink>
+              <BlogLink href="blogs" query="Highligh" />
+            </NavigationMenuLink>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Question</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Questions</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <NavigationMenuLink>Latest</NavigationMenuLink>
-            <NavigationMenuLink>Popular</NavigationMenuLink>
-            <NavigationMenuLink>Highline</NavigationMenuLink>
+            <NavigationMenuLink>
+              <BlogLink href="questions" query="Latest" />
+            </NavigationMenuLink>
+            <NavigationMenuLink>
+              <BlogLink href="questions" query="Popular" />
+            </NavigationMenuLink>
+            <NavigationMenuLink>
+              <BlogLink href="questions" query="Highligh" />
+            </NavigationMenuLink>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Project</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink>Popular</NavigationMenuLink>
-            <NavigationMenuLink>Highline</NavigationMenuLink>
-          </NavigationMenuContent>
+          <NavigationMenuLink className="font-bold" asChild>
+            <Link href="/go">Project</Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink className="font-bold" asChild>
