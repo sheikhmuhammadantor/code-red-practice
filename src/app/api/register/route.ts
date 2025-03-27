@@ -1,4 +1,4 @@
-import authDBConnect from "@/lib/authDBConnect";
+import authDBConnect from "@/lib/DB/authDBConnect";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {

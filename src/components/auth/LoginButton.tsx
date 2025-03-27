@@ -1,9 +1,11 @@
-import { Button } from '../cn/ui/button'
+"use client"; 
+import { Button } from '@/components/cn/ui/button';
+import { signIn } from "next-auth/react";
 
 function LoginButton() {
   return (
     <div>
-        <Button size="sm">Login</Button>
+        <Button size="sm" onClick={() => signIn()}>Login</Button>
     </div>
   )
 }
