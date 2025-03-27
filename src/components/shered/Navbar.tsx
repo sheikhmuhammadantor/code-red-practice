@@ -1,39 +1,22 @@
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
+import Image from "next/image";
+import Menu from "../cn/ui/Menu";
+import Link from "next/link";
+import LoginButton from "../auth/LoginButton";
+import Register from "../auth/Register";
 
-} from "@/components/cn/utils/navigation-menu";
-
-
-function Navbar() {
+export default function Navbar() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink>Link</NavigationMenuLink>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink>Link2</NavigationMenuLink>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <NavigationMenuLink>Link3</NavigationMenuLink>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <nav className="py-2 px-4 border-b flex justify-between items-center">
+      <div className="flex items-center justify-center gap-2">
+        <Link href="/">
+          <Image src="/logo.png" height={80} width={80} alt="Code Red Logo" />
+        </Link>
+        <Menu />
+      </div>
+      <div className="flex items-center justify-center gap-2">
+        <LoginButton/>
+        <Register/>
+      </div>
+    </nav>
   );
 }
-
-export default Navbar;
