@@ -1,10 +1,9 @@
-import React from 'react'
 import { Button } from '../cn/ui/button'
 
 function LoginButton() {
   return (
     <div>
-        <Button>Login</Button>
+        <Button size="sm">Login</Button>
     </div>
   )
 }

@@ -1,10 +1,9 @@
-import React from 'react'
 import { Button } from '../cn/ui/button'
 
 function Register() {
   return (
     <div>
-        <Button>Register</Button>
+        <Button variant="gradient" size="sm">Sign Up</Button>
     </div>
   )
 }
