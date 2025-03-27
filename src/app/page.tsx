@@ -1,3 +1,4 @@
+import { Button } from "@/components/cn/ui/button";
 import Image from "next/image";
 
 export default function Home() {
@@ -7,8 +8,8 @@ export default function Home() {
         <h2 className="mx-auto">
           Welcome to <span className="text-red-500">Code Red</span>
         </h2>
-        <br />
         <Image src="/logo.png" alt="Code Red Logo" width={200} height={200} />
+        <Button variant="outline" className="mx-auto font-bold" >Click Me</Button>
       </main>
     </div>
   );
