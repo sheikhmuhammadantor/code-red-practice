@@ -6,6 +6,7 @@ import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import NextAuthSessionProvider from "@/providers/auth/NextAuthSessionProvider";
 import { Toaster } from "@/components/cn/ui/sonner";
+import StoreProvider from "@/providers/store/StoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,14 +33,16 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <section>
-              <Navbar />
-            </section>
-            <section>{children}</section>
-            <Toaster />
-            <section>
-              <Footer />
-            </section>
+            <StoreProvider>
+              <section>
+                <Navbar />
+              </section>
+              <section>{children}</section>
+              <Toaster />
+              <section>
+                <Footer />
+              </section>
+            </StoreProvider>
           </ThemeProvider>
         </body>
       </NextAuthSessionProvider>
