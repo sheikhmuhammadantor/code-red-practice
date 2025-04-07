@@ -22,7 +22,7 @@ const Login = () => {
         }
 
         try {
-            console.log(`${process.env.CHAT_EXPRESS_SERVER}/api/user/login`);
+            console.log(`${process.env.NEXT_PUBLIC_CHAT_EXPRESS_SERVER}/api/user/login`);
             const { data } = await axios.post(`https://katha-koi.onrender.com/api/user/login`, {
                 email,
                 password,
@@ -53,7 +53,7 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="Your Email" className="input input-bordered w-full max-w-xs" onChange={(e) => setEmail(e.target.value)} value={email} />
+                    <input type="email" placeholder="Your Email" autoComplete='on' className="input input-bordered w-full max-w-xs" onChange={(e) => setEmail(e.target.value)} value={email} />
                 </div>
                 <div className="form-control w-full max-w-xs mb-4 relative">
                     <label className="label">

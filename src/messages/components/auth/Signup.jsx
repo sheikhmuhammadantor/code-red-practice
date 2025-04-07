@@ -1,6 +1,7 @@
+"use client"
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useRouter } from "next/navigation";
 
 const Signup = () => {
 
@@ -11,11 +12,11 @@ const Signup = () => {
     const [password, setPassword] = useState();
     const [pic, setPic] = useState();
     const [picLoading, setPicLoading] = useState(false);
-    const history = useHistory();
+    const router = useRouter();
 
-    const cloudinaryUrl = process.env.CLOUDINARY_URL;
-    const cloudinaryPreset = process.env.CLOUDINARY_PRESET;
-    const cloudinaryCloudName = process.env.CLOUDINARY_CLOUD_NAME
+    const cloudinaryUrl = process.env.NEXT_PUBLIC_CLOUDINARY_URL;
+    const cloudinaryPreset = process.env.NEXT_PUBLIC_CLOUDINARY_PRESET;
+    const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,7 +35,7 @@ const Signup = () => {
         // Add your signup logic here
         // use axios to send a post request to the backend with the user data
         try {
-            const { data } = await axios.post(`${process.env.CHAT_EXPRESS_SERVER}/api/user`, {
+            const { data } = await axios.post(`${process.env.NEXT_PUBLIC_CHAT_EXPRESS_SERVER}/api/user`, {
                 name,
                 email,
                 password,
@@ -45,7 +46,7 @@ const Signup = () => {
             localStorage.setItem("userInfo", JSON.stringify(data));
             setPicLoading(false);
             alert("Signup Successful");
-            history.push("/chats");
+            router.push("/chats");
         }
         catch (error) {
             console.log(error);

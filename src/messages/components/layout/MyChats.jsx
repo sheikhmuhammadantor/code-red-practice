@@ -17,7 +17,7 @@ const MyChats = ({fetchAgain}) => {
         },
       };
 
-      const { data } = await axios.get(`${process.env.CHAT_EXPRESS_SERVER}/api/chat`, config);
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_CHAT_EXPRESS_SERVER}/api/chat`, config);
       console.log(data);
       setChats(data);
     } catch (error) {

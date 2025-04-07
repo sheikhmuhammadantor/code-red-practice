@@ -6,7 +6,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { getSender } from "../config/ChatLogics"
 import ScrollableChat from './ScrollableChat';
 
-const ENDPOINT = process.env.CHAT_EXPRESS_SERVER;
+const ENDPOINT = process.env.NEXT_PUBLIC_CHAT_EXPRESS_SERVER;
 var socket, selectedChatCompare;
 
 const SingleChat = () => {
@@ -32,7 +32,7 @@ const SingleChat = () => {
             setLoading(true);
 
             const { data } = await axios.get(
-                `${process.env.CHAT_EXPRESS_SERVER}/api/message/${selectedChat._id}`,
+                `${process.env.NEXT_PUBLIC_CHAT_EXPRESS_SERVER}/api/message/${selectedChat._id}`,
                 config
             );
             setMessages(data);
@@ -87,7 +87,7 @@ const SingleChat = () => {
                     },
                 };
                 setNewMessage("");
-                const { data } = await axios.post(`${process.env.CHAT_EXPRESS_SERVER}/api/message`,
+                const { data } = await axios.post(`${process.env.NEXT_PUBLIC_CHAT_EXPRESS_SERVER}/api/message`,
                     {
                         content: newMessage,
                         chatId: selectedChat,

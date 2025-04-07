@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Signup from "@/messages/components/auth/Signup";
 import Login from "@/messages/components/auth/Login";
 import { useRouter } from "next/navigation";
 
@@ -36,7 +37,7 @@ const HomePage = () => {
             aria-label="SignUp"
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
-            {/* <Signup /> */}
+            <Signup />
           </div>
           {/*  */}
           <input
