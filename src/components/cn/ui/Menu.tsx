@@ -51,7 +51,7 @@ function Menu() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink className="font-bold" asChild>
-            <Link href="/go">Project</Link>
+            <Link href="/messages">Massage</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>

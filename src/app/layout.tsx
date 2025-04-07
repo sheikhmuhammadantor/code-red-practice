@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html data-theme="light" lang="en" suppressHydrationWarning>
       <NextAuthSessionProvider>
         <body className={`${geistSans.variable} antialiased`}>
           <ThemeProvider
