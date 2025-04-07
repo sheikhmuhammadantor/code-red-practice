@@ -7,6 +7,7 @@ import Footer from "@/components/shared/Footer";
 import NextAuthSessionProvider from "@/providers/auth/NextAuthSessionProvider";
 import { Toaster } from "@/components/cn/ui/sonner";
 import StoreProvider from "@/providers/store/StoreProvider";
+import ChatProvider from "@/messages/Context/ChatProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,14 +35,16 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <StoreProvider>
-              <section>
-                <Navbar />
-              </section>
-              <section>{children}</section>
-              <Toaster />
-              <section>
-                <Footer />
-              </section>
+              <ChatProvider>
+                <section>
+                  <Navbar />
+                </section>
+                <section>{children}</section>
+                <Toaster />
+                <section>
+                  <Footer />
+                </section>
+              </ChatProvider>
             </StoreProvider>
           </ThemeProvider>
         </body>

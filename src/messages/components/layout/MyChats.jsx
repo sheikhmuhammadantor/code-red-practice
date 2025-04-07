@@ -1,10 +1,11 @@
+"use client";
+
 import React, { useEffect, useState } from 'react'
-import { ChatState } from '../../Context/ChatProvider';
+import { ChatState } from "../../Context/ChatProvider";
 import axios from 'axios';
-import Skeleton from '../ui/Skeleton';
 import { getSender } from '../../config/ChatLogics';
 
-const MyChats = ({fetchAgain}) => {
+const MyChats = ({ fetchAgain }) => {
 
   const [loggedUser, setLoggedUser] = useState();
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();

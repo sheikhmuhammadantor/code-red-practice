@@ -1,23 +1,24 @@
+"use client";
 import { useState } from "react";
-import { FaBell, FaSearch } from "react-icons/fa";
+// import { FaBell, FaSearch } from "react-icons/fa";
 import { ChatState } from "../../Context/ChatProvider";
 import axios from "axios";
-import Skeleton from "../ui/Skeleton";
-import UserListItem from "../ui/UserListItem";
+// import Skeleton from "../ui/Skeleton";
+// import UserListItem from "../ui/UserListItem";
 
 const SideDrawer = () => {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
-    const {
-      setSelectedChat,
-      user,
-      // notification,
-      // setNotification,
-      chats,
-      setChats,
-    } = ChatState();
+  const {
+    setSelectedChat,
+    user,
+    // notification,
+    // setNotification,
+    chats,
+    setChats,
+  } = ChatState();
 
   const handelSearch = async () => {
     if (!search) {
@@ -42,27 +43,27 @@ const SideDrawer = () => {
     }
   }
 
-    const accessChat = async (userId) => {
-      console.log(userId);
-  
-      try {
-        setLoadingChat(true);
-        const config = {
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${user.token}`,
-          },
-        };
-        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_CHAT_EXPRESS_SERVER}/api/chat`, { userId }, config);
-  
-        if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
-        setSelectedChat(data);
-        setLoadingChat(false);
-        // onClose();
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const accessChat = async (userId) => {
+    console.log(userId);
+
+    try {
+      setLoadingChat(true);
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+      const { data } = await axios.post(`${process.env.NEXT_PUBLIC_CHAT_EXPRESS_SERVER}/api/chat`, { userId }, config);
+
+      if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
+      setSelectedChat(data);
+      setLoadingChat(false);
+      // onClose();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -74,7 +75,8 @@ const SideDrawer = () => {
               <label
                 htmlFor="my-drawer"
                 className="btn btn-ghost text-black hover:bg-gray-200">
-                <FaSearch />
+                {/* <FaSearch /> */}
+                "S"
                 <span className="hidden md:flex">Search User</span>
               </label>
             </div>
@@ -86,10 +88,13 @@ const SideDrawer = () => {
                   <button onClick={handelSearch} className="btn outline btn-sm">GO</button>
                 </div>
                 <div>
-                  {loading ? (<Skeleton />
+                  {loading ? (
+                    // <Skeleton />
+                    "Loading..."
                   ) : (
                     searchResult?.map((user) => (
-                      <UserListItem key={user._id} user={user} handleFunction={() => accessChat(user._id)}/>
+                      // <UserListItem key={user._id} user={user} handleFunction={() => accessChat(user._id)}/>
+                      "UserListItem"
                     ))
                   )}
                 </div>
@@ -100,7 +105,8 @@ const SideDrawer = () => {
         <h2 className="text-2xl">KathaKoi</h2>
         <div className="flex items-center gap-2 justify-center">
           <div className="p-1 cursor-pointer">
-            <FaBell />
+            "B"
+            {/* <FaBell /> */}
             {/* <MenuList></MenuList> */}
           </div>
           <div>

@@ -46,7 +46,7 @@ const Signup = () => {
             localStorage.setItem("userInfo", JSON.stringify(data));
             setPicLoading(false);
             alert("Signup Successful");
-            router.push("/chats");
+            router.push("/messages/chats");
         }
         catch (error) {
             console.log(error);
