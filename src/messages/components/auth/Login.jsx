@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 const Login = () => {
 
     const [show, setShow] = useState(false);
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
@@ -32,7 +32,7 @@ const Login = () => {
             localStorage.setItem("userInfo", JSON.stringify(data));
             setLoading(false);
             alert("Login Successful");
-            // router.push("/chats");
+            router.push("/messages/chats");
         }
         catch (error) {
             console.log(error);
@@ -53,7 +53,7 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="Your Email" autoComplete='on' className="input input-bordered w-full max-w-xs" onChange={(e) => setEmail(e.target.value)} value={email} />
+                    <input type="email" placeholder="Your Email" className="input input-bordered w-full max-w-xs" onChange={(e) => setEmail(e.target.value)} value={email} />
                 </div>
                 <div className="form-control w-full max-w-xs mb-4 relative">
                     <label className="label">

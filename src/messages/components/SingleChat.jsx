@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { ChatState } from "../Context/ChatProvider";
 import axios from "axios";
 import io from "socket.io-client";
-import { FaArrowLeft } from "react-icons/fa";
-import { getSender } from "../config/ChatLogics"
+// import { FaArrowLeft } from "react-icons/fa";
+import { getSender } from "../config/ChatLogics";
 import ScrollableChat from './ScrollableChat';
 
 const ENDPOINT = process.env.NEXT_PUBLIC_CHAT_EXPRESS_SERVER;
@@ -130,7 +130,8 @@ const SingleChat = () => {
                     <>
                         <div className='text-[28px] md:text-3xl pb-3 px-2 w-full flex justify-between items-center'>
                             <button className='btn btn-outline btn-sm text-black hover:bg-gray-200 flex md:hidden' onClick={() => setSelectedChat("")}>
-                                <FaArrowLeft />
+                                {/* <FaArrowLeft /> */}
+                                "ArrowLeft"
                             </button>
                             {messages && (
                                 !selectedChat.isGroupChat ? (
@@ -148,6 +149,7 @@ const SingleChat = () => {
                             {
                                 loading ? ("Loading...") : (<div>
                                     <ScrollableChat messages={messages} />
+                                    {/* "ScrollableChat" */}
                                 </div>)
                             }
                             <div className='mt-3' onKeyDown={sendMessage}>
